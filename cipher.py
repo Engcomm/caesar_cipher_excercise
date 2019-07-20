@@ -2,12 +2,13 @@ from string import ascii_lowercase, ascii_uppercase
 
 
 def caesar_cipher(s, k):
-
+    # test if the string supplied can be convert into ascii
     try:
         s.encode('ascii')
     except UnicodeEncodeError:
         return 'A non ascii character was found in the provided string'
-
+    
+    # test if the integer supplied falls within the given constraints
     if k <= 100:
         pass
     else:
@@ -15,6 +16,7 @@ def caesar_cipher(s, k):
 
     result = ''
 
+    # loop through the string and append to result utilising the shift integer supplied with k
     for char in s:
         if char.isupper():
             result += ascii_uppercase[(ascii_uppercase.index(char) - k) % 26]
