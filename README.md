@@ -1,4 +1,4 @@
-# caesar_cipher_excercie
+# caesar_cipher_excercise
 
 # Excercise brief:
 
