@@ -36,6 +36,11 @@ def test_numbers():
     assert caesar_cipher('a1b2c3', 2) == 'y1z2a3'
 
 
+def test_symbols():
+    assert caesar_cipher('!@#$%^&*()_+', 0) == '!@#$%^&*()_+'
+    assert caesar_cipher('!@#$%^&*()_+', 1) == '!@#$%^&*()_+'
+
+
 def test_range():
     assert caesar_cipher('abc', 25) == 'bcd'
     assert caesar_cipher('abc', 26) == 'abc'
@@ -44,8 +49,14 @@ def test_range():
     for i in range(101):
         assert caesar_cipher('abc', i)
 
+    assert caesar_cipher('abc', 200) == 'A integer larger than 100 was provided (0 <= k <= 100)'
+
 
 def test_alphabet():
     assert caesar_cipher(alphabet, 0) == alphabet
     assert caesar_cipher(alphabet, 1) == alphabet[-1:] + alphabet[0: -1]
     assert caesar_cipher(alphabet, 2) == alphabet[-2:] + alphabet[0: -2]
+
+
+def test_ascii():
+    assert caesar_cipher('строка', 0) == 'A non ascii character was found in the provided string'
