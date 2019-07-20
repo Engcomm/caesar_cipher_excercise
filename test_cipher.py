@@ -1,4 +1,4 @@
-from myapp import caesar_cipher
+from cipher import caesar_cipher
 from string import ascii_lowercase as alphabet
 
 """
